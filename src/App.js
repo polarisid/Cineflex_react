@@ -2,7 +2,7 @@ import './assets/reset.css'
 import './assets/style.css'
 import TopBar from './components/TopBar';
 import HomePage from './HomePage/HomePage';
-import SessaoPage from './SessaoPage/SessaoPage';
+import SessaoPage from './FilmePage/FilmePage';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 export default function App(){
     return(
@@ -10,9 +10,8 @@ export default function App(){
             <TopBar/>
             <Routes>
                 <Route path="/" element={<HomePage />}/>
-                <Route path="/sessoes/:idFilme" element={<SessaoPage />}/>
+                <Route path="/filme/:idFilme" element={<SessaoPage />}/>
             </Routes>
-
         </BrowserRouter>
     )
 }

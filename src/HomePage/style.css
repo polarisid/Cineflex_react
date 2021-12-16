@@ -36,3 +36,10 @@
     letter-spacing: 0.04em;
 
 }
+
+.loading-image{
+    position: absolute;
+    top:50%;
+    align-items: center;
+    width: 10%;
+}

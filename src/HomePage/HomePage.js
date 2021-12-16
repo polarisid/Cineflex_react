@@ -1,5 +1,20 @@
-import './style.css'
+import './style.css';
+import { useState,useEffect } from 'react';
+import axios from 'axios';
+
 export default function HomePage(){
+    const [items, setItems] = useState(null);
+    useEffect(() => {
+        const requisicao = axios.get("https://mock-api.driven.com.br/api/v4/cineflex/movies");
+
+        requisicao.then(resposta => {setItems(resposta.data);});
+    }, []);
+
+    // if(items === null) {
+	// 	return ( 
+        
+	// }
+
     return(
         <>
             <div className="content">
@@ -8,25 +23,22 @@ export default function HomePage(){
                 </div>
 
                 <div className="films-container">
-                    <Film/>
-                    <Film/>
-                    <Film/>
-                    <Film/>
-                    <Film/>
-                    <Film/>
-                    <Film/>
-                    <Film/>
+                   
+                    {items==null? <img className="loading-image" src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" />: items.map(item => <Film image = {item.posterURL}/>)}
+                    
+               
+   
                 </div>
             </div>
         </>
     )
 }
 
-function Film(){
+function Film({image}){
     return (
         <>
             <div className="film">
-                <img src="https://img.estadao.com.br/fotos/politica/eleicoes-2020/MA/FMA100000850735_div.jpg"/>
+                <img src={image}/>
             </div>
         </>
     )

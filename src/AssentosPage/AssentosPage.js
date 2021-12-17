@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
+import styled from 'styled-components';
 import './style.css'
 import Rodape from '../components/Rodape'
 import { useState,useEffect } from 'react';
@@ -6,8 +7,9 @@ import axios from 'axios';
 export default function AssentosPage(){
     const {idSessao} = useParams();
     const API = "https://mock-api.driven.com.br/api/v4/cineflex/showtimes/"+idSessao+"/seats"
-    
+
     const [items, setItems] = useState(null);
+    const [click,setClick]=useState(null);
     useEffect(() => {
         const requisicao = axios.get(API);
 
@@ -19,6 +21,23 @@ export default function AssentosPage(){
         )
         
 	}
+
+    function verificar(event){
+        if(event.target.id=='true'){
+            setClick(event.target.value); 
+            event.target.id='clicked';
+            console.log(event.target)
+        }
+        else if(event.target.id=='clicked'){
+            event.target.id='true';
+            setClick(event.target.value); 
+        }
+        else{
+            alert('Esse assento não está disponível')
+        }
+    }
+
+    // {setClick(event.target.value); event.target.id='clicked';}
     
     return (
         <>
@@ -28,7 +47,7 @@ export default function AssentosPage(){
             </div>
             <div className="assentos-container">
                 <ul>
-                {(items.seats).map((item)=> <li id={item.isAvailable.toString()}> {item.name}</li>)}
+                {(items.seats).map((item)=> <li type="checkbox" value={item.name} onClick={(event)=> verificar(event) } id={item.isAvailable.toString()}> {item.name}</li>)}
                 </ul>
             </div>
             <div className="legenda">
@@ -48,4 +67,17 @@ export default function AssentosPage(){
         </div>
         </>
     )
+
 }
+
+const Option = styled.option`
+display: flex;
+align-items: center;
+justify-content: center;
+width: 30px;
+height: 30px;
+list-style-type: none;
+margin: 15px 5px;
+background-color: blue;
+border-radius: 50%;
+`;

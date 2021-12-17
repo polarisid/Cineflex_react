@@ -4,6 +4,7 @@ import TopBar from './components/TopBar';
 import HomePage from './HomePage/HomePage';
 import SessaoPage from './SessoesPage/SessoesPage';
 import AssentosPage from './AssentosPage/AssentosPage';
+import SucessoPage from './SucessoPage/SucessoPage';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default function App(){
@@ -14,6 +15,7 @@ export default function App(){
                 <Route path="/" element={<HomePage />}/>
                 <Route path="/sessoes/:idFilme" element={<SessaoPage />}/>
                 <Route path="/assentos/:idSessao" element={<AssentosPage />}/>
+                <Route path="/sucesso" element={<SucessoPage/>}/>
             </Routes>
         </BrowserRouter>
     )

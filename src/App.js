@@ -3,7 +3,9 @@ import './assets/style.css'
 import TopBar from './components/TopBar';
 import HomePage from './HomePage/HomePage';
 import SessaoPage from './SessoesPage/SessoesPage';
+import AssentosPage from './AssentosPage/AssentosPage';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 export default function App(){
     return(
         <BrowserRouter>
@@ -11,6 +13,7 @@ export default function App(){
             <Routes>
                 <Route path="/" element={<HomePage />}/>
                 <Route path="/sessoes/:idFilme" element={<SessaoPage />}/>
+                <Route path="/assentos/:idSessao" element={<AssentosPage />}/>
             </Routes>
         </BrowserRouter>
     )

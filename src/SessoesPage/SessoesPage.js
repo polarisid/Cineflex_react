@@ -1,4 +1,5 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import Rodape from '../components/Rodape'
 import './style.css';
 import { useState,useEffect } from 'react';
 import axios from 'axios';
@@ -40,23 +41,23 @@ function Sessao({weekday,date, showtimes}){
         <>
         <p className="date">{weekday} {date}</p>
         <div className="time">
-            {showtimes.map(item=><div>{item.name}</div>)}
+            {showtimes.map(item=><Link to={"/assentos/"+item.id}><div>{item.name}</div></Link>)} 
         </div>
         </>
     )
 }
-function Rodape({items}){
-    return(
-        <>
-        <div className="rodape">
-            <div className="film-rodape">
-                <img src = {items.posterURL}/>
-            </div>
+// function Rodape({items}){
+//     return(
+//         <>
+//         <div className="rodape">
+//             <div className="film-rodape">
+//                 <img src = {items.posterURL}/>
+//             </div>
 
-            <p className="titulo-filme">{items.title}</p>
-        </div>
-        </>
-    )
-}
+//             <p className="titulo-filme">{items.title}</p>
+//         </div>
+//         </>
+//     )
+// }
 
 

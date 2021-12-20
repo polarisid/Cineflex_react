@@ -26,14 +26,14 @@ export default function AssentosPage(){
 	}
 
     function verificar(event){
-        if(event.target.id=='true'){
+        if(event.target.id==='true'){
             assentosSelecionados.unshift(parseInt(event.target.innerText))
             assentosSelecionadosID.unshift(event.target.value)
             event.target.id='clicked';
             console.log(assentosSelecionadosID,assentosSelecionados)
             setClick(event.target.value);
         }
-        else if(event.target.id=='clicked'){
+        else if(event.target.id==='clicked'){
             event.target.id='true';
             assentosSelecionados.splice(assentosSelecionados.indexOf(parseInt(event.target.innerText)), 1);
             assentosSelecionadosID.splice(assentosSelecionadosID.indexOf(event.target.value), 1);
@@ -45,7 +45,7 @@ export default function AssentosPage(){
     }
 
     function EnviarDados(){
-        if(nome==''|| cpf==""){
+        if(nome===''|| cpf===""){
             alert("Por favor insira Cpf ou Nome válido")
         }
         else{

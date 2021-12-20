@@ -18,7 +18,7 @@ export default function HomePage(){
                     <p>Selecione o filme</p>
                 </div>
                 <div className="films-container">
-                    {items==null? <img className="loading-image" src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" />: items.map((item,index) => <Link key = {index}to={"/sessoes/"+item.id}><Film image = {item.posterURL}/></Link>)}
+                    {items===null? <img className="loading-image" src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" />: items.map((item,index) => <Link key = {index}to={"/sessoes/"+item.id}><Film image = {item.posterURL}/></Link>)}
                 </div>
             </div>
         </>

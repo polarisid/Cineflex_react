@@ -69,7 +69,7 @@ export default function AssentosPage(){
             </div>
             <div className="assentos-container">
                 <ul>
-                {(items.seats).map((item)=> <li value={[item.id]} onClick={(event)=> verificar(event)} id={item.isAvailable.toString()}>{item.name}</li>)}
+                {(items.seats).map((item,index)=> <li key ={index} value={[item.id]} onClick={(event)=> verificar(event)} id={item.isAvailable.toString()}>{item.name}</li>)}
                 </ul>
             </div>
             <div className="legenda">

@@ -15,7 +15,7 @@ export default function SucessoPage({}){
         </div>
         <div className="section">
             <p className="title">Ingressos</p>
-            {ingressos.map((item)=><p >Assento {item}</p>)}
+            {ingressos.map((item,index)=><p  key ={index}>Assento {item}</p>)}
         </div>
         <div className="section">
             <p className="title" >Comprador</p>

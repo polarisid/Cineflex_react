@@ -27,7 +27,7 @@ export default function SessoesPage(){
                 <p>Selecione a sessão</p>
             </div>
             <div className="sessao-container">
-                {items.days.map(item=> <Sessao weekday={item.weekday} date={item.date} showtimes={item.showtimes}/>)}
+                {items.days.map((item,index)=> <Sessao key={index} weekday={item.weekday} date={item.date} showtimes={item.showtimes}/>)}
             </div>
        </div>
         
@@ -41,23 +41,8 @@ function Sessao({weekday,date, showtimes}){
         <>
         <p className="date">{weekday} {date}</p>
         <div className="time">
-            {showtimes.map(item=><Link to={"/assentos/"+item.id}><div>{item.name}</div></Link>)} 
+            {showtimes.map((item,index)=><Link key={index} to={"/assentos/"+item.id}><div>{item.name}</div></Link>)} 
         </div>
         </>
     )
 }
-// function Rodape({items}){
-//     return(
-//         <>
-//         <div className="rodape">
-//             <div className="film-rodape">
-//                 <img src = {items.posterURL}/>
-//             </div>
-
-//             <p className="titulo-filme">{items.title}</p>
-//         </div>
-//         </>
-//     )
-// }
-
-

@@ -11,7 +11,8 @@ export default function AssentosPage(){
     const {idSessao} = useParams();
     const API = "https://mock-api.driven.com.br/api/v4/cineflex/showtimes/"+idSessao+"/seats"
     const [items, setItems] = useState(null);
-    const [click,setClick]=useState(null);
+    const click=useState(null);
+    const setClick =click[1]
     const [cpf,setCpf] = useState('');
     const [nome,setNome] = useState('');
     useEffect(() => {
@@ -27,10 +28,10 @@ export default function AssentosPage(){
 
     function verificar(event){
         if(event.target.id==='true'){
-            assentosSelecionados.unshift(parseInt(event.target.innerText))
+            assentosSelecionados
+            .unshift(parseInt(event.target.innerText))
             assentosSelecionadosID.unshift(event.target.value)
             event.target.id='clicked';
-            console.log(assentosSelecionadosID,assentosSelecionados)
             setClick(event.target.value);
         }
         else if(event.target.id==='clicked'){
